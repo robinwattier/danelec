@@ -109,6 +109,16 @@ revealStyle.innerHTML = `
             color: #F1FAEE !important;
         }
 
+        .nav-links.active .btn-contact {
+            border-color: var(--accent) !important;
+            color: var(--accent) !important;
+        }
+
+        .nav-links.active .btn-contact:hover {
+            background-color: var(--accent) !important;
+            color: #FFFFFF !important;
+        }
+
         .nav-links.active .nav-tel {
             border-color: #FFC107 !important;
             color: #FFC107 !important;

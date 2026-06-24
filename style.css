@@ -183,8 +183,8 @@ header.nav-open .nav-links a:hover {
 }
 
 header.nav-open .btn-contact {
-    color: #F1FAEE !important;
-    border-color: #F1FAEE !important;
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
 }
 
 header.nav-open .btn-contact:hover {
@@ -313,12 +313,13 @@ header.scrolled .nav-logo {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
     padding-top: 150px;
+    padding-bottom: 80px;
 }
 
 .hero .container {
@@ -337,18 +338,70 @@ header.scrolled .nav-logo {
 .hero-bg img {
     position: absolute;
     right: 0;
-    top: -5%;
+    top: 0;
     width: 65%;
-    height: 110%;
+    height: 100%;
     object-fit: cover;
-    object-position: right 100%;
+    object-position: right center;
     opacity: 0.7; /* Increased opacity to 0.7 as requested */
 }
 
 @media (max-width: 768px) {
-    .hero-bg img {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        min-height: 100vh;
+        padding-top: 130px;
+        padding-bottom: 80px;
+    }
+    .hero .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-align: center;
+        max-width: 100%;
+        z-index: 2;
+    }
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        object-position: 70% 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .hero-bg img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 80% center; /* Center the van vertically */
+        opacity: 0.6; /* Slightly lower opacity on mobile for better text readability */
+    }
+    .hero-bg::after {
+        background: linear-gradient(to bottom, var(--bg-dark) 0%, rgba(13, 2, 2, 0.7) 40%, transparent 100%) !important;
+    }
+
+    .hero-btns {
+        margin-top: auto !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    .hero-btns .btn-primary,
+    .hero-btns .btn-contact {
+        width: 100%;
+        max-width: 290px;
+        padding: 0.8rem 1.5rem;
+        justify-content: center;
+        text-align: center;
     }
 }
 
@@ -591,7 +644,7 @@ section {
 
 .product-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 2.5rem;
 }
 
@@ -602,7 +655,6 @@ section {
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
 }
 
 .product-card:hover {
@@ -806,7 +858,7 @@ section {
 /* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 2rem;
 }
 
@@ -1060,6 +1112,7 @@ footer {
 @media (max-width: 992px) {
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
