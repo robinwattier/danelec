@@ -85,7 +85,7 @@ revealStyle.innerHTML = `
         transform: translateY(0) !important;
     }
     
-    @media (max-width: 1100px) {
+    @media (max-width: 1180px) {
         .nav-links.active {
             display: flex;
             position: fixed;
